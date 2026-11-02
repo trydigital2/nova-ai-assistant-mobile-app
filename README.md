@@ -10,6 +10,15 @@
 
 ---
 
+## 📸 Visual Showcase & Mobile Screens
+
+| ⚡ Prompt Engineering Workspace | 📊 Token Usage & Cost Analytics |
+| :---: | :---: |
+| <img src="screenshots/workspace.jpg" alt="NovaAI Prompt Engineering Workspace" width="340" /> | <img src="screenshots/analytics.jpg" alt="NovaAI Live Token Analytics" width="340" /> |
+| *Structured Prompt Library with Tags, Variables & Model Selectors* | *Live Token Consumption & Multi-Model Inference Cost Matrix* |
+
+---
+
 ## 📱 App Interface Overview
 
 ```text
