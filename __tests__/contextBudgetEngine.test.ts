@@ -84,3 +84,4 @@ describe('NovaAI Context Window & Token Budget Engine', () => {
     expect(results[2].utilizationPercentage).toBe(0.6);
   });
 });
+
