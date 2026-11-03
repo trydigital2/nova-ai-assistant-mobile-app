@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View, StatusBar } from 'react-native';
 import { MOCK_PROMPT_TEMPLATES } from './src/data/mockData';
-import { PromptTemplate } from './src/types';
+import { PromptTemplate, ContextBudgetInput } from './src/types';
 import { PromptTemplateCard } from './src/components/PromptTemplateCard';
 import { TokenUsageAnalyticsCard } from './src/components/TokenUsageAnalyticsCard';
+import { ContextBudgetCard } from './src/components/ContextBudgetCard';
 import { compareModelCosts } from './src/utils/aiEngine';
 import { colors, spacing, typography } from './src/theme';
 
@@ -11,6 +12,12 @@ export default function App() {
   const [selectedTemplate, setSelectedTemplate] = useState<PromptTemplate | null>(null);
 
   const estimates = compareModelCosts(1250, 480);
+  const contextBudget: ContextBudgetInput = {
+    systemPromptTokens: 2400,
+    userPromptTokens: 3800,
+    ragContextTokens: 14200,
+    reservedOutputTokens: 4000,
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -21,6 +28,9 @@ export default function App() {
           <Text style={styles.brandTitle}>NovaAI</Text>
           <Text style={styles.brandSubtitle}>Intelligent Prompt Engineering & Inference Analytics</Text>
         </View>
+
+        {/* Real-Time Context Window Budget Optimizer */}
+        <ContextBudgetCard budget={contextBudget} initialModelId="gpt-4o" />
 
         {/* Live Token Usage Analytics */}
         <TokenUsageAnalyticsCard estimates={estimates} totalSessionsPromptCount={34} />
