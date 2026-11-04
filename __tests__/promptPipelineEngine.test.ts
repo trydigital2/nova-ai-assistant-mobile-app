@@ -86,3 +86,4 @@ describe('NovaAI Prompt Chaining & Pipeline Engine', () => {
     expect(summary.formattedCost).toMatch(/^\$[0-9.]+/);
   });
 });
+
