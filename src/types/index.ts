@@ -73,3 +73,29 @@ export interface ContextBudgetBreakdown {
   recommendation: string;
 }
 
+export type PipelineStepStatus = 'pending' | 'running' | 'completed' | 'error';
+
+export interface PipelineStep {
+  id: string;
+  name: string;
+  model: AIModelId;
+  promptTemplate: string;
+  outputKey: string;
+  status: PipelineStepStatus;
+  estimatedTokens: number;
+  latencyMs: number;
+}
+
+export interface PromptPipelineSummary {
+  pipelineId: string;
+  title: string;
+  description: string;
+  steps: PipelineStep[];
+  totalEstimatedTokens: number;
+  totalEstimatedCostUSD: number;
+  formattedCost: string;
+  totalLatencyMs: number;
+  isReady: boolean;
+}
+
+
