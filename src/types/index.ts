@@ -47,3 +47,29 @@ export interface TokenCostEstimate {
   totalCostUSD: number;
   formattedCost: string; // e.g. "$0.0042"
 }
+
+export type ContextHealthStatus = 'optimal' | 'warning' | 'overflow';
+
+export interface ContextBudgetInput {
+  systemPromptTokens: number;
+  userPromptTokens: number;
+  ragContextTokens: number;
+  reservedOutputTokens: number;
+}
+
+export interface ContextBudgetBreakdown {
+  modelId: AIModelId;
+  modelName: string;
+  contextWindowTokens: number;
+  systemPromptTokens: number;
+  userPromptTokens: number;
+  ragContextTokens: number;
+  reservedOutputTokens: number;
+  totalAllocatedTokens: number;
+  remainingTokens: number;
+  utilizationPercentage: number;
+  status: ContextHealthStatus;
+  statusBadgeText: string;
+  recommendation: string;
+}
+
