@@ -76,7 +76,7 @@ export const PromptPipelineCard: React.FC<PromptPipelineCardProps> = ({
                 <View style={styles.stepMetaRow}>
                   <Text style={styles.modelTag}>{step.model.toUpperCase()}</Text>
                   <Text style={styles.tokensTag}>{step.estimatedTokens} tokens</Text>
-                  <Text style={styles.outputKeyTag}>-> {`{{${step.outputKey}}}`}</Text>
+                  <Text style={styles.outputKeyTag}>{`-> {{${step.outputKey}}}`}</Text>
                 </View>
               </View>
             </View>
